@@ -20,3 +20,21 @@ class MovieViewSet(viewsets.ModelViewSet):
 class MovieCategoriesViewSet(viewsets.ModelViewSet):
     queryset = MovieCategories.objects.all()
     serializer_class = MovieCategoriesSerializer
+
+class DirectorViewSet(viewsets.ModelViewSet):
+    search_fields = ['name', 'lastName']
+    filter_backends = (filters.SearchFilter,)
+    queryset = Movie.objects.all()
+    serializer_class = MovieSerializer
+
+class ActorViewSet(viewsets.ModelViewSet):
+    search_fields = ['name', 'lastName']
+    filter_backends = (filters.SearchFilter,)
+    queryset = Movie.objects.all()
+    serializer_class = MovieSerializer
+
+class CharacterViewSet(viewsets.ModelViewSet):
+    search_fields = ['name']
+    filter_backends = (filters.SearchFilter,)
+    queryset = Movie.objects.all()
+    serializer_class = MovieSerializer
